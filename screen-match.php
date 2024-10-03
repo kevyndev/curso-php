@@ -9,13 +9,13 @@ $nomeFilme = "Se beber não case";
 $anoLancamento = 2022;
 
 $quantidadeDeNotas = $argc - 1;
-$somaNotas = 0;
+$somaNotas = [];
 
-for ($contador = 1; $contador < $argc ; $contador++) {
-    $somaNotas += $argv[$contador];
+for ($contador = 1; $contador < $argc; $contador++) {
+    $somaNotas[] = (float) $argv[$contador];
 }
 
-$notaFilme = $somaNotas / $quantidadeDeNotas;
+$notaFilme = array_sum($somaNotas) / $quantidadeDeNotas;
 $planoPrime = true;
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
@@ -25,11 +25,11 @@ echo "Nota do Filme: $notaFilme\n";
 echo "Ano de Lançamento: $anoLancamento\n";
 
 if ($anoLancamento > 2022) {
-    echo("Esse filme é um lançamento\n");
+    echo "Esse filme é um lançamento\n";
 } elseif ($anoLancamento > 2020 && $anoLancamento <= 2022) {
-    echo("Esse filme ainda é novo\n");
+    echo "Esse filme ainda é novo\n";
 } else {
-    echo("Esse filme não é um lançamento\n");
+    echo "Esse filme não é um lançamento\n";
 }
 
 $genero = match ($nomeFilme) {
@@ -39,4 +39,13 @@ $genero = match ($nomeFilme) {
     default => "genero desconhecido"
 };
 
-echo("O genero do filme é $genero\n");
+echo "O genero do filme é $genero\n";
+
+$filme = [
+    "nome" => "Thor - Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "super-heroi",
+];
+
+echo $filme["ano"];
