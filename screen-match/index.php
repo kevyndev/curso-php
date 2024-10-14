@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/funcoes.php";
+require __DIR__ . "/src/funcoes.php";
 
 echo "Bem vindo ao Screen Match!\n";
 
@@ -37,12 +37,13 @@ $genero = match ($nomeFilme) {
 
 echo "O genero do filme é $genero\n";
 
-$filme = [
-    "nome" => "Thor - Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-heroi",
-];
+$filme = criaFilme(
+    nota: 7.8,
+    genero: "super-herói",
+    anoLancamento: 2021,
+    nome: "Thor: Ragnarok"
+);
+    
 
 echo $filme["ano"];
 
