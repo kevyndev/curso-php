@@ -3,7 +3,7 @@
 class Titulo {
     private array $notas;
 
-    public  function __construct(
+    public function __construct(
         public readonly string $nome,
         public readonly int $anoLancamento,
         public readonly Genero $genero,
@@ -21,5 +21,9 @@ class Titulo {
         $quantidadeNotas = count($this->notas);
 
         return $somaNotas / $quantidadeNotas;
+    }
+
+    public function duracaoEmMinutos(): int {
+        return 0;
     }
 }
